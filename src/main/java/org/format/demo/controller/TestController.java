@@ -21,7 +21,7 @@ public class TestController {
         return e;
     }
 
-    @RequestMapping(value="/testCustomObj", produces={"text/html; charset=UTF-8"},method = RequestMethod.GET)
+    @RequestMapping(value="/testCustomObj", produces={"application/json; charset=UTF-8"},method = RequestMethod.GET)
     @ResponseBody
     public Employee testCustomObj(@RequestParam(value = "id") int id,
                                   @RequestParam(value = "name") String name) {
