@@ -11,7 +11,7 @@
            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
        default-autowire="byName">
 
-    <!-- 防止@ResponseBody出现的中文乱码 -->
+    <!-- 配置解析器 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
@@ -25,33 +25,13 @@
                         </list>
                     </property>
                 </bean>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
                 <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
             </list>
         </property>
     </bean>
 
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <util:list id="beanList">
-                <ref bean="stringHttpMessageConverter"/>
-                <ref bean="mappingJackson2HttpMessageConverter"/>
-                <ref bean="marshallingHttpMessageConverter"/>
-            </util:list>
-        </property>
-    </bean>
-
-    <bean id="stringHttpMessageConverter"
-          class="org.springframework.http.converter.StringHttpMessageConverter"/>
-    <bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-    <bean id="marshallingHttpMessageConverter"
-          class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-        <property name="marshaller" ref="castorMarshaller"/>
-        <property name="unmarshaller" ref="castorMarshaller"/>
-    </bean>
-
-    <bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller"/>-->
-
-    <!-- 防止@ResponseBody出现的中文乱码 -->
     <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
     <mvc:resources location="/static/" mapping="/static/**"/>
     <mvc:annotation-driven/>

@@ -3,18 +3,21 @@ package org.format.demo.model;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /*@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)*/
 @Entity
 @Table(name="t_employee")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.NONE)
 public class Employee {
-
+    @XmlElement
     private Integer id;
+    @XmlElement
     private String name;
     private Integer age;
-
     private Dept dept;
 
     @GeneratedValue
