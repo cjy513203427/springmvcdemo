@@ -17,7 +17,9 @@ public class Employee {
     private Integer id;
     @XmlElement
     private String name;
+    @XmlElement
     private Integer age;
+    @XmlElement
     private Dept dept;
 
     @GeneratedValue

@@ -10,6 +10,7 @@
 
     <properties>
         <spring.version>4.0.2.RELEASE</spring.version>
+        <hibernate.version>4.3.5.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -117,13 +118,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.5.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>4.3.5.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <!--  hibernate dependency  -->
 
