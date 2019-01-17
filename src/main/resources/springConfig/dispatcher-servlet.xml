@@ -50,10 +50,24 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <!--
-    <import resource="classpath:springConfig/viewConfig/jsp.xml"/>
-    -->
+    <bean class="org.format.demo.custom.CustomViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".ftl"/>
+        <property name="contentType" value="text/html;charset=utf-8"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="requestContextAttribute" value="request"/>
+    </bean>
+
+    <!-- 通过order属性来定义视图解析器的优先级，order的值越小优先级越低 -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="10"></property>
+    </bean>
+
+    <!--遇到同名的ftl和jsp文件，配置在前的解析器优先级更高-->
     <import resource="classpath:springConfig/viewConfig/freemarker.xml"/>
+    <import resource="classpath:springConfig/viewConfig/jsp.xml"/>
 
 
 </beans>

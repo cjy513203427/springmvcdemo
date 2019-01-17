@@ -50,6 +50,7 @@
     <aop:config>
         <aop:advisor pointcut="execution(* org.format.demo.service.impl.*Service.*(..))" advice-ref="txAdvice"/>
     </aop:config>
+
     <tx:advice id="txAdvice" transaction-manager="txManager">
         <tx:attributes>
             <tx:method name="get*" read-only="true"/>
