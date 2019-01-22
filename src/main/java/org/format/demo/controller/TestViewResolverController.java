@@ -16,14 +16,12 @@ public class TestViewResolverController {
 
 
     @RequestMapping("jsp")
-    @ResponseBody
     public ModelAndView jsp(ModelAndView view) {
         view.setViewName("jsp:tvrc/test");
         return view;
     }
 
     @RequestMapping("/ftl")
-    @ResponseBody
     public ModelAndView freemarker(ModelAndView view) {
         view.setViewName("freemarker:tvrc/test");
         return view;
