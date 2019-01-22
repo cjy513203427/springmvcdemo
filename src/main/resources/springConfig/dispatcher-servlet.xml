@@ -32,23 +32,25 @@
         </property>
     </bean>
 
+<!--
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
             <bean class="org.format.demo.interceptor.LoginInterceptor"/>
         </property>
         <property name="order" value="-1"/>
     </bean>
+-->
 
     <mvc:resources location="/static/" mapping="/static/**"/>
     <mvc:annotation-driven/>
     <context:component-scan base-package="org.format.demo.controller" />
     <!--拦截器-->
-    <mvc:interceptors>
+<!--    <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="org.format.demo.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 
     <bean class="org.format.demo.custom.CustomViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
