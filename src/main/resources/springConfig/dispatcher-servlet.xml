@@ -13,6 +13,11 @@
 
     <!-- 配置解析器 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="customArgumentResolvers">
+            <list>
+                <bean class="org.format.demo.custom.FormObjArgumentResolver" />
+            </list>
+        </property>
         <property name="messageConverters">
             <list>
                 <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
