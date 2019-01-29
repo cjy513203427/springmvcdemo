@@ -7,10 +7,12 @@ import org.format.demo.model.TestModel;
 import org.format.demo.model.XmlActionResult;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,8 +26,15 @@ import java.util.Map;
 @RequestMapping(value = "/test")
 public class TestController {
 
+    //自定义属性编辑器——日期
     @InitBinder
-    public void initBinder(WebDataBinder binder) {
+    public void initBinderDate(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
+
+    @InitBinder
+    public void initBinderDept(WebDataBinder binder) {
         binder.registerCustomEditor(Dept.class, new CustomDeptEditor());
     }
 
