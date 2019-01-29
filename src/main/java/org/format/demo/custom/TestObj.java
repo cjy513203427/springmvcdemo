@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FormObj {
+public @interface TestObj {
     //参数别名
     String value() default "";
 }

@@ -1,6 +1,6 @@
 package org.format.demo.controller;
 
-import org.format.demo.custom.FormObj;
+import org.format.demo.custom.TestObj;
 import org.format.demo.model.Dept;
 import org.format.demo.model.Employee;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/foc")
-public class FormObjController {
+public class TestObjController {
     @RequestMapping("/test1")
     @ResponseBody
-    public Map test1(@FormObj Dept dept, @FormObj Employee emp) {
+    public Map test1(@TestObj Dept dept, @TestObj Employee emp) {
         Map resultMap = new HashMap();
         resultMap.put("Dept",dept);
         resultMap.put("Emp",emp);
@@ -29,7 +29,7 @@ public class FormObjController {
 
     @RequestMapping("/test2")
     @ResponseBody
-    public Map test2(@FormObj("d") Dept dept, @FormObj("e") Employee emp) {
+    public Map test2(@TestObj("d") Dept dept, @TestObj("e") Employee emp) {
         Map resultMap = new HashMap();
         resultMap.put("d",dept);
         resultMap.put("e",emp);

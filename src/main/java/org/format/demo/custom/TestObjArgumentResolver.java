@@ -23,18 +23,18 @@ import java.util.Enumeration;
  * @Date: 2019/1/28 14:15
  * @Description:自定义注解解析器
  */
-public class FormObjArgumentResolver implements HandlerMethodArgumentResolver {
+public class TestObjArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(FormObj.class);
+        return parameter.hasParameterAnnotation(TestObj.class);
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-        FormObj formObj = parameter.getParameterAnnotation(FormObj.class);
+        TestObj testObj = parameter.getParameterAnnotation(TestObj.class);
 
-        String alias = getAlias(formObj, parameter);
+        String alias = getAlias(testObj, parameter);
 
         //拿到obj, 先从ModelAndViewContainer中拿，若没有则new1个参数类型的实例
         Object obj = (mavContainer.containsAttribute(alias)) ?
@@ -100,9 +100,9 @@ public class FormObjArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     //生成别名
-    private String getAlias(FormObj formObj, MethodParameter parameter) {
-        //得到FormObj的属性value，也就是对象参数的简称
-        String alias = formObj.value();
+    private String getAlias(TestObj testObj, MethodParameter parameter) {
+        //得到TestObj的属性value，也就是对象参数的简称
+        String alias = testObj.value();
         if(alias == null || StringUtils.isBlank(alias)) {
             //如果简称为空，取对象简称的首字母小写开头
             String simpleName = parameter.getParameterType().getSimpleName();
