@@ -66,7 +66,7 @@ public class EmployeeController {
         return "redirect:/employee/";
     }
 
-    @RequestMapping(value="/xmlOrJson",produces={"application/json; charset=UTF-8"})
+    @RequestMapping(value="/returnJson",produces={"application/json; charset=UTF-8"})
     @ResponseBody
     public Map<String, Object> xmlOrJson() {
         Map<String, Object> map = new HashMap<String, Object>();

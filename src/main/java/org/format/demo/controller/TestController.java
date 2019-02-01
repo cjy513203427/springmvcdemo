@@ -1,13 +1,11 @@
 package org.format.demo.controller;
 
 import org.format.demo.custom.CustomDeptEditor;
-import org.format.demo.model.Dept;
-import org.format.demo.model.Employee;
-import org.format.demo.model.TestModel;
-import org.format.demo.model.XmlActionResult;
+import org.format.demo.model.*;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +70,17 @@ public class TestController {
         actionResult.setMessage("Success with XML");
         actionResult.setData(e);
         return actionResult;
+    }
+
+    @RequestMapping(value= "/fetch/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @ResponseBody
+    public Company getForObjectXMLDemo(@PathVariable(value = "id") Integer id) {
+        Company comp = new Company();
+        comp.setId(id);
+        comp.setCompanyName("XYZ");
+        comp.setCeoName("ABCD");
+        comp.setNoEmp(100);
+        return comp;
     }
 
     @RequestMapping(value = "/testCustomObjWithRp", produces={"application/json; charset=UTF-8"})
