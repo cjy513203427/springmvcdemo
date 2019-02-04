@@ -8,10 +8,15 @@ import java.util.Date;
  * @Description:
  */
 public class TestModel {
+
     private int age;
+
     private Date birth;
+
     private String name;
+
     private boolean good;
+
     private long times;
 
     public int getAge() {
