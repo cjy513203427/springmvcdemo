@@ -42,6 +42,7 @@
     <mvc:resources location="/static/" mapping="/static/**"/>
     <mvc:annotation-driven/>
     <context:component-scan base-package="org.format.demo.controller" />
+    <context:component-scan base-package="org.format.demo.controlleradvice" />
     <!--拦截器-->
 <!--    <mvc:interceptors>
         <mvc:interceptor>

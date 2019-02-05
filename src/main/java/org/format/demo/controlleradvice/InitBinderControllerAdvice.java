@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 /**
  * @Auther: 谷天乐
  * @Date: 2019/1/15 17:16
- * @Description:
+ * @Description:注册CustomEditor
  */
 @ControllerAdvice
 public class InitBinderControllerAdvice {

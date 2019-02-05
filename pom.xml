@@ -225,24 +225,24 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <scanIntervalSeconds>1</scanIntervalSeconds>
-                    <stopPort>9966</stopPort>
-                    <stopKey>foo</stopKey>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>8888</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                    </connectors>
-                    <webAppConfig>
-                        <contextPath>/SpringMVCDemo</contextPath>
-                    </webAppConfig>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.mortbay.jetty</groupId>-->
+                <!--<artifactId>jetty-maven-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<scanIntervalSeconds>1</scanIntervalSeconds>-->
+                    <!--<stopPort>9966</stopPort>-->
+                    <!--<stopKey>foo</stopKey>-->
+                    <!--<connectors>-->
+                        <!--<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">-->
+                            <!--<port>8888</port>-->
+                            <!--<maxIdleTime>60000</maxIdleTime>-->
+                        <!--</connector>-->
+                    <!--</connectors>-->
+                    <!--<webAppConfig>-->
+                        <!--<contextPath>/SpringMVCDemo</contextPath>-->
+                    <!--</webAppConfig>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

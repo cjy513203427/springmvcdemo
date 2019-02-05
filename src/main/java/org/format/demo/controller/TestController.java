@@ -107,6 +107,14 @@ public class TestController {
         return tm;
     }
 
+    @RequestMapping(value = "testObj", produces={"application/json; charset=UTF-8"})
+    @ResponseBody
+    public Map testObj(Employee e) {
+        Map resultMap = new HashMap();
+        resultMap.put("Employee",e);
+        return resultMap;
+    }
+
     /**
      * @Author 谷天乐
      * @Description 抛出java.lang.IllegalStateException
