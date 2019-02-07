@@ -15,6 +15,7 @@ import java.util.Map;
  * @Auther: 谷天乐
  * @Date: 2019/1/17 15:06
  * @Description:
+ *
  */
 public class MyExcelView extends AbstractExcelView {
 
@@ -32,8 +33,6 @@ public class MyExcelView extends AbstractExcelView {
         for (int i = 0; i < list.size(); i++) {
             //三个参数，第一个为工作簿，第二个为行，第三个为单元格
             cell = getCell(sheet, 0, i);
-            setText(cell, (String) list.get(i));
-            cell = getCell(sheet, i + 1, 2);
             setText(cell, (String) list.get(i));
         }
     }

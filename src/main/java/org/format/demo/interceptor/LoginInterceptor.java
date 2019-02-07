@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @Auther: 谷天乐
  * @Date: 2019/1/16 14:40
- * @Description:
+ * @Description:自定义登录拦截器
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 

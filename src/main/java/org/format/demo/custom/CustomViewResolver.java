@@ -48,9 +48,10 @@ public class CustomViewResolver extends UrlBasedViewResolver {
         }
     }
 
-    /*
+    /**
      * @Author 谷天乐
      * @Description 使用UrlBasedViewResolver的buildView方法
+     * 因为CustomViewResolver重写了buildView，不再执行UrlBasedViewResolver的buildView方法
      * @Date 2019/1/17 11:26
      * @Param [viewClass, viewName, prefix, suffix]
      * @return org.springframework.web.servlet.view.AbstractUrlBasedView
@@ -70,6 +71,15 @@ public class CustomViewResolver extends UrlBasedViewResolver {
         return view;
     }
 
+    /**
+     * @Author 谷天乐
+     * @Description 使用AbstractTemplateViewResolver的buildView,为view设置属性
+     * Freemarker解析所需
+     *
+     * @Date 2019/2/7 10:22
+     * @Param [viewName]
+     * @return org.springframework.web.servlet.view.AbstractUrlBasedView
+     **/
     private AbstractUrlBasedView buildFreemarkerView(String viewName) throws Exception {
         AbstractTemplateView view = (AbstractTemplateView) build(FreeMarkerView.class, viewName, "", getSuffix());
         view.setExposeRequestAttributes(this.exposeRequestAttributes);
