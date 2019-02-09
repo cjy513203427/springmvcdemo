@@ -20,9 +20,9 @@ import java.util.Map;
 @RequestMapping(value = "/error")
 public class TestErrorController {
 
-    @RequestMapping("/exception")
+    @RequestMapping("/classNotFound")
     @ResponseBody
-    public Map exception() throws ClassNotFoundException {
+    public Map classNotFound() throws ClassNotFoundException {
         throw new ClassNotFoundException("class not found");
     }
 
@@ -44,12 +44,34 @@ public class TestErrorController {
         return resultMap;
     }
 
+    /**
+     * @Author 谷天乐
+     * @Description If empty, will default to any
+     * exceptions listed in the method argument list.
+     * 相当于@ExceptionHandler(Exception.class)
+     * @Date 2019/2/8 21:34
+     * @Param [error, request, response]
+     * @return java.util.Map
+     **/
     @ExceptionHandler()
     @ResponseBody
     public Map error(Exception error, HttpServletRequest request, HttpServletResponse response) {
         Map resultMap = new HashMap();
         resultMap.put("param", "Exception error");
         return resultMap;
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    @ResponseBody
+    public Map error() {
+        Map resultMap = new HashMap();
+        resultMap.put("param","NullPointerException");
+        return resultMap;
+    }
+
+    @RequestMapping("/noSuchMethod")
+    public Map noHandleMethod() throws NoSuchMethodException {
+        throw new NoSuchMethodException();
     }
 
     /**
@@ -61,10 +83,8 @@ public class TestErrorController {
      * @return java.util.Map
      **/
     @RequestMapping("/unauth")
-    @ResponseBody
     public Map unauth() {
         throw new UnauthorizedException();
     }
-
 
 }

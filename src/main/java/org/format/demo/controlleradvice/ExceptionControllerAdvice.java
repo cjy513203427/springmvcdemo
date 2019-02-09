@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Auther: 谷天乐
+ * @Author: 谷天乐
  * @Date: 2019/1/21 10:48
  * @Description: ExceptionHandlerMethodResolver内部找不到Controller的@ExceptionHandler注解的话，
  * 会找@ControllerAdvice中的@ExceptionHandler注解方法

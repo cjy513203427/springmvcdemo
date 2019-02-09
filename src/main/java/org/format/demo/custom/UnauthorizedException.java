@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @Date: 2019/1/21 10:50
  * @Description: 定义1个自定义异常
  */
-@ResponseStatus(HttpStatus.UNAUTHORIZED)
+@ResponseStatus(code=HttpStatus.UNAUTHORIZED,reason="用户未授权")
 public class UnauthorizedException extends RuntimeException {
 
 }
